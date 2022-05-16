@@ -1,4 +1,4 @@
-package br.com.guini.securityapp;
+package br.com.guini.auth.webapp.inmemorydb;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ public class SecureRestApi {
      * It's necessary adding ROLE_ prefix
      * @return
      */
-    @Secured("ROLE_USER")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getValue() {
         return ResponseEntity.ok("Secure Rest API");

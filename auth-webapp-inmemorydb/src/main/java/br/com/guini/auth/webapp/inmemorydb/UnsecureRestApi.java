@@ -1,4 +1,4 @@
-package br.com.guini.securityapp;
+package br.com.guini.auth.webapp.inmemorydb;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

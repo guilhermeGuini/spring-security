@@ -1,4 +1,4 @@
-package br.com.guini.securityapp;
+package br.com.guini.auth.webapp.inmemorydb;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
