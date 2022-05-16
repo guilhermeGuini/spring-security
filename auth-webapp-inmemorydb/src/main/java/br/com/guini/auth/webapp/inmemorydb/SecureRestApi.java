@@ -3,6 +3,9 @@ package br.com.guini.auth.webapp.inmemorydb;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +22,16 @@ public class SecureRestApi {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getValue() {
         return ResponseEntity.ok("Secure Rest API");
+    }
+
+    @GetMapping(value = "/user")
+    public ResponseEntity<User> getUser() {
+        return ResponseEntity.ok( ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+    }
+
+    @GetMapping(value = "/user-interface")
+    public ResponseEntity<User> getUserInterface(@AuthenticationPrincipal User currentUser) {
+        return ResponseEntity.ok(currentUser);
     }
 
     @Secured("ROLE_ADMIN")
