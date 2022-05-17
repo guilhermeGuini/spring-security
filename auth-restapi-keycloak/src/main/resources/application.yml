@@ -1,0 +1,8 @@
+keycloak:
+  realm: SpringBootKeycloak
+  auth-server-url: http://localhost:8081
+  ssl-required: external
+  resource: login-app
+  credentials.secret: KyQ8XEK4rcpq2wDW5CRuTYU6yP2emGT0
+  public-client: true
+  bearer-only: true
